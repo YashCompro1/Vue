@@ -39,7 +39,7 @@
       <button @click="handleAttack">ATTACK</button>
       <button @click="handleSpecialAttack" :disabled="attackCounter < 3">SPECIAL ATTACK</button>
       <button @click="healPlayer" :disabled="playerHealth == 100">HEAL</button>
-      <button>SURRENDER</button>
+      <button @click="surrender">SURRENDER</button>
     </section>
     <section id="log" class="container">
       <h2>Battle Log</h2>

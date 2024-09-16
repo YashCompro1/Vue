@@ -67,5 +67,8 @@ Vue.createApp({
 			this.attackCounter = 0;
 			this.winner = null;
 		},
+        surrender() {
+            this.winner = 'monster'
+        }
 	},
 }).mount("#game");
