@@ -23,7 +23,7 @@
       </div>
     </section>
     <section id="player" class="container">
-      <h2>Your Health</h2>
+      <h2>Your Health {{playerHealth}}</h2>
       <div class="healthbar">
         <div class="healthbar__value" :style="playerHealthStyle"></div>
       </div>
@@ -43,7 +43,9 @@
     </section>
     <section id="log" class="container">
       <h2>Battle Log</h2>
-      <ul></ul>
+      <ul>
+        <li v-for="log of logs" :key="log">{{ log }}</li>
+      </ul>
     </section>
   </div>
 </body>
