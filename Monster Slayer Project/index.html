@@ -17,15 +17,15 @@
   </header>
   <div id="game">
     <section id="monster" class="container">
-      <h2>Monster Health {{monsterHealth}}</h2>
+      <h2>Monster Health</h2>
       <div class="healthbar">
-        <div class="healthbar__value" :style="{width:monsterHealth+'%'}"></div>
+        <div class="healthbar__value" :style="monsterHealthStyle"></div>
       </div>
     </section>
     <section id="player" class="container">
-      <h2>Your Health {{playerHealth}}</h2>
+      <h2>Your Health</h2>
       <div class="healthbar">
-        <div class="healthbar__value" :style="{width:playerHealth+'%'}"></div>
+        <div class="healthbar__value" :style="playerHealthStyle"></div>
       </div>
     </section>
     <div v-if="winner != null" class="container">
@@ -33,6 +33,7 @@
       <h2 v-if="winner=='draw'">Draw!</h2>
       <h2 v-if="winner=='monster'">Monster Won!</h2>
       <h2 v-if="winner=='player'">Player Won!</h2>
+      <button @click="startNewGame">Start New Game</button>
     </div>
     <section id="controls">
       <button @click="handleAttack">ATTACK</button>

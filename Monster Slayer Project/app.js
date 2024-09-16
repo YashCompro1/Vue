@@ -23,7 +23,14 @@ Vue.createApp({
 			winner: null,
 		};
 	},
-	computed: {},
+	computed: {
+		playerHealthStyle() {
+			return { width: Math.max(0, this.playerHealth) + "%" };
+		},
+		monsterHealthStyle() {
+			return { width: Math.max(0, this.monsterHealth) + "%" };
+		},
+	},
 	watch: {
 		playerHealth() {
 			this.winner = getWinner(this.playerHealth, this.monsterHealth);
@@ -53,6 +60,12 @@ Vue.createApp({
 			this.playerHealth = Math.min(100, this.playerHealth + generateRandomValue(15, 25));
 			this.attackPlayer(8, 16);
 			this.attackCounter++;
+		},
+		startNewGame() {
+			this.playerHealth = 100;
+			this.monsterHealth = 100;
+			this.attackCounter = 0;
+			this.winner = null;
 		},
 	},
 }).mount("#game");
