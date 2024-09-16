@@ -1,4 +1,4 @@
-function generateAttackDamage(low = 1, high = 10) {
+function generateRandomValue(low = 1, high = 10) {
 	return Math.floor(Math.random() * (high - low) + low);
 }
 
@@ -13,14 +13,18 @@ Vue.createApp({
 	computed: {},
 	methods: {
 		handleAttack() {
-			this.monsterHealth = Math.max(0, this.monsterHealth - generateAttackDamage(5, 10));
-			this.playerHealth = Math.max(0, this.playerHealth - generateAttackDamage(8, 16));
+			this.monsterHealth = Math.max(0, this.monsterHealth - generateRandomValue(5, 10));
+			this.playerHealth = Math.max(0, this.playerHealth - generateRandomValue(8, 16));
 			this.attackCounter++;
 		},
 		handleSpecialAttack() {
-			this.monsterHealth = Math.max(0, this.monsterHealth - generateAttackDamage(5, 10));
-			this.playerHealth = Math.max(0, this.playerHealth - generateAttackDamage(15, 30));
+			this.monsterHealth = Math.max(0, this.monsterHealth - generateRandomValue(5, 10));
+			this.playerHealth = Math.max(0, this.playerHealth - generateRandomValue(15, 30));
 			this.attackCounter = 0;
+		},
+		healPlayer() {
+			this.playerHealth = Math.max(0, this.playerHealth - generateRandomValue(8, 16));
+			this.playerHealth = Math.min(100, this.playerHealth + generateRandomValue(15, 25));
 		},
 	},
 }).mount("#game");
