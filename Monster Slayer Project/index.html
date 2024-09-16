@@ -35,7 +35,7 @@
       <h2 v-if="winner=='player'">Player Won!</h2>
       <button @click="startNewGame">Start New Game</button>
     </div>
-    <section id="controls">
+    <section id="controls" v-if="winner == null">
       <button @click="handleAttack">ATTACK</button>
       <button @click="handleSpecialAttack" :disabled="attackCounter < 3">SPECIAL ATTACK</button>
       <button @click="healPlayer" :disabled="playerHealth == 100">HEAL</button>
