@@ -17,20 +17,20 @@
   </header>
   <div id="game">
     <section id="monster" class="container">
-      <h2>Monster Health</h2>
+      <h2>Monster Health {{monsterHealth}}</h2>
       <div class="healthbar">
         <div class="healthbar__value" :style="{width:monsterHealth+'%'}"></div>
       </div>
     </section>
     <section id="player" class="container">
-      <h2>Your Health</h2>
+      <h2>Your Health {{playerHealth}}</h2>
       <div class="healthbar">
         <div class="healthbar__value" :style="{width:playerHealth+'%'}"></div>
       </div>
     </section>
     <section id="controls">
       <button @click="handleAttack">ATTACK</button>
-      <button>SPECIAL ATTACK</button>
+      <button @click="handleSpecialAttack" :disabled="attackCounter < 3">SPECIAL ATTACK</button>
       <button>HEAL</button>
       <button>SURRENDER</button>
     </section>
