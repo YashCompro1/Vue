@@ -6,11 +6,8 @@ const app = Vue.createApp({
 		};
 	},
 	methods: {
-		saveInput(event) {
-			this.currentUserInput = event.target.value;
-		},
 		setText() {
-			this.message = this.currentUserInput;
+			this.message = this.$refs.inputRef.value;
 		},
 	},
 });
