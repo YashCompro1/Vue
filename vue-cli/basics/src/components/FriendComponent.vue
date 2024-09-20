@@ -16,12 +16,12 @@ export default {
             detailsVisible: false,
         };
     },
+    emits: ['toggle-favourite'],
     methods: {
         toggleDetails() {
             this.detailsVisible=!this.detailsVisible;
         },
         toggleFavourite(id) {
-            console.log("🚀 ~ friend component ~ toggleFavourite ~ id:",id);
             this.$emit('toggle-favourite',id);
         }
     }
