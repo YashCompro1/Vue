@@ -5,7 +5,7 @@
         </header>
         <ul>
             <li v-for="friend in friends" :key="friend.id">
-                <friend-contact :friend="friend"></friend-contact>
+                <friend-contact :friend="friend" @toggle-favourite="toggleFavourite($event)"></friend-contact>
             </li>
         </ul>
     </section>
@@ -32,6 +32,13 @@ export default {
             ],
         };
     },
+    methods: {
+        toggleFavourite(id) {
+            console.log("🚀 ~ app component ~ toggleFavourite ~ id:",id);
+            let friend=this.friends.find(friend => friend.id===id);
+            friend.isFavourite=!friend.isFavourite;
+        }
+    }
 };
 </script>
 
