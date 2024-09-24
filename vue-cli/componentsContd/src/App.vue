@@ -1,31 +1,33 @@
 <template>
   <div>
     <the-header></the-header>
-    <badge-list></badge-list>
-    <user-info :full-name="activeUser.name" :info-text="activeUser.description" :role="activeUser.role"></user-info>
-    <course-goals>
-      <template #default="slotProps">
-        <h2>{{ slotProps.data }}</h2>
-        <h3>{{ slotProps.newBind.data }}</h3>
-      </template>
-    </course-goals>
+    <div>
+      <button @click="setSelectedComponent('active-goals')">Active Goals</button>
+      <button @click="setSelectedComponent('manage-goals')">Manage Goals</button>
+    </div>
+    <!-- <active-goals v-if="selectedComponent == 'active'"></active-goals>
+    <manage-goals v-if="selectedComponent == 'manage'"></manage-goals> -->
+    <keep-alive>
+      <component :is="selectedComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 
-import BadgeList from './components/BadgeList.vue';
-import CourseGoals from './components/CourseGoals.vue';
+import ActiveGoals from './components/ActiveGoals.vue';
+import ManageGoals from './components/ManageGoals.vue';
 import TheHeader from './components/TheHeader.vue';
 
 export default {
   components: {
     'the-header': TheHeader,
-    'badge-list': BadgeList,
-    'course-goals': CourseGoals
+    'active-goals': ActiveGoals,
+    'manage-goals': ManageGoals,
   },
   data() {
     return {
+      selectedComponent: 'active-goals',
       activeUser: {
         name: 'Maximilian Schwarzmüller',
         description: 'Site owner and admin',
@@ -33,6 +35,11 @@ export default {
       },
     };
   },
+  methods: {
+    setSelectedComponent(component) {
+      this.selectedComponent = component
+    }
+  }
 };
 </script>
 
