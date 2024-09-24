@@ -30,9 +30,14 @@ export default {
             activeTopic: null,
         };
     },
+    provide() {
+        return {
+            topics: this.topics
+        }
+    },
     methods: {
         activateTopic(topicId) {
-            this.activeTopic=this.topics.find((topic) => topic.id===topicId);
+            this.activeTopic = this.topics.find((topic) => topic.id === topicId);
         },
     },
 };
