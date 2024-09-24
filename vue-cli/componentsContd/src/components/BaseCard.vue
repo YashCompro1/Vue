@@ -1,5 +1,8 @@
 <template>
     <section>
+        <header v-if="$slots.header">
+            <slot name="header"></slot>
+        </header>
         <slot></slot>
     </section>
 </template>

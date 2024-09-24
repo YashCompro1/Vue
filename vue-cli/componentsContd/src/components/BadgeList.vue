@@ -1,6 +1,8 @@
 <template>
   <base-card>
-    <h2>Available Badges</h2>
+    <template #header>
+      <h2> Available Badges</h2>
+    </template>
     <ul>
       <li>
         <base-badge type="admin" caption="ADMIN"></base-badge>
