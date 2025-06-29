@@ -1,21 +1,26 @@
 <template>
     <li>
-        <div>
+        <base-card>
             <header>
                 <h3>{{ resource.title }}</h3>
-                <button>Delete</button>
+                <base-button :type="'button'" :variant="'flat'" :clickHandler="handleClick">Delete</base-button>
             </header>
-        </div>
-        <p>{{ resource.description }}</p>
-        <nav>
-            <a :href="resource.link">Visit</a>
-        </nav>
+            <p>{{ resource.description }}</p>
+            <nav>
+                <a :href="resource.link">Visit</a>
+            </nav>
+        </base-card>
     </li>
 </template>
 
 <script>
 export default {
-    props: ['resource']
+    props: ['resource'],
+    methods: {
+        handleClick() {
+            console.log('clicked in learning Resources')
+        }
+    }
 }
 </script>
 <style scoped>
